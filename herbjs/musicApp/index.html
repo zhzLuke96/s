@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🌿Herb.Js</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round|Material+Icons+Two+Tone"
+        rel="stylesheet">
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        }
+
+        @keyframes loadingCircle {
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        * {
+            transition: background .3s;
+        }
+    </style>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 234, 255);
+        }
+
+        #file {
+            display: none;
+        }
+    </style>
+    <style>
+        .title-overflow {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        #backimg {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: blur(3px);
+            opacity: 0.9;
+        }
+
+        #backimg img {
+            height: 100vh;
+        }
+
+        .record {
+            background:
+                linear-gradient(30deg, transparent 40%, rgba(42, 41, 40, .85) 40%) no-repeat 100% 0,
+                linear-gradient(60deg, rgba(42, 41, 40, .85) 60%, transparent 60%) no-repeat 0 100%,
+                repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
+            background-size: 50% 100%, 100% 50%, 100% 100%;
+        }
+
+        .record:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -0.5rem;
+            border: solid 1px #d9a388;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #da5b33,
+                inset 0 0 0 27px #da5b33;
+            background: #b5ac9a;
+            content: '';
+        }
+    </style>
+</head>
+
+<body>
+    <div id="backimg"><img /></div>
+    <input type="file" id="file">
+    <script>
+        const file = document.getElementById('file');
+        file.addEventListener('change', (e) => {
+            const f = e.target.files[0]
+            window.player.append(f)
+            // playAudio(e.target.files[0]);
+        });
+    </script>
+    <div id="root"></div>
+    <script src="https://cdn.bootcss.com/jsmediatags/3.9.3/jsmediatags.min.js"></script>
+    <script src="../lib/index.min.js"></script>
+    <script src="./musicPlay.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
