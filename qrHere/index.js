@@ -28,7 +28,7 @@
     }
     document.body.appendChild(canvas);
 
-    qr.toCanvas(canvas, 'https://www.baidu.com/', function (error) {
+    qr.toCanvas(canvas, location.href, function (error) {
         if (error) console.error(error)
         console.log('success!');
     })
